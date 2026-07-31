@@ -3,7 +3,14 @@
 Fork of [/mdev588/vboard](http://github.com/mdev588/vboard) with tweaks, including turning it into a dock/panel rather than a free floating window.
 
 
-wayland support/detection ported from [archisman-panigrahi/vboard](http://github.com/archisman-panigrahi/vboard)
+- ported wayland detection/support from: [archisman-panigrahi/vboard](http://github.com/archisman-panigrahi/vboard)
+- turned the free floating window into a dock/panel
+- modified main layout
+- added two new layouts:
+  - `vboard_fn` replicates the function keys from termux, although the modifier keys only affect keys typed on the vboard instance (so Super+Arrow keys work for snapping windows, but you can't combine them with another physical or virtual keyboard, as you can in termux)
+  - `vboard_nav` is for use with VacuumTube or the YouTube SmartTV interface.
+
+![vboard-panel](images/vboard-panel.png)
 
 ---
 *original README.md:*
