@@ -274,14 +274,17 @@ class VirtualKeyboard(Gtk.Window):
 
         # Define rows for keys
         rows = [
-            ["Esc", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Delete" ],
-            ["`", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "=", "Backspace", "Home" ],
-            ["Tab", "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", "[", "]", "\\", "PageUp"],
-            ["CapsLock", "A", "S", "D", "F", "G", "H", "J", "K", "L", ";", "'", "Enter", "PageDown"],
+            # ["Esc", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Delete" ],
+            # ["`", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "=", "Backspace", "Home" ],
+            # ["Tab", "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", "[", "]", "\\", "PageUp"],
+            # ["CapsLock", "A", "S", "D", "F", "G", "H", "J", "K", "L", ";", "'", "Enter", "PageDown"],
             # ["Shift_L", "Z", "X", "C", "V", "B", "N", "M", ",", ".", "/", "Shift_R", "↑"],
             # ["Ctrl_L","Super_L", "Alt_L", "Space", "Alt_R", "Super_R", "Ctrl_R", "←", "→", "↓"]
-            ["Shift_L", "Z", "X", "C", "V", "B", "N", "M", ",", ".", "/", "↑", "Shift_R", "End"],
-            ["Ctrl_L","Super_L", "Alt_L", "Space", "Alt_R", "Super_R", "Ctrl_R", "←", "↓", "→"]
+            # ["Shift_L", "Z", "X", "C", "V", "B", "N", "M", ",", ".", "/", "↑", "Shift_R", "End"],
+            # ["Ctrl_L","Super_L", "Alt_L", "Space", "Alt_R", "Super_R", "Ctrl_R", "←", "↓", "→"]
+            ["Esc", "Tab",  "/", "-", "PageUp", "Home", "↑", "End", "Enter"],
+            [ "Shift_L", "Ctrl_L", "Super_L", "Alt_L", "PageDown",  "←", "↓", "→","Space"]
+            # ["Esc", "Ctrl_L","Super_L", "Alt_L",  "Alt_R", "Super_R", "Ctrl_R", "Home", "PageUp", "PageDown", "End", "←", "↑", "↓", "→"]
         ]
 
         # Create each row and add it to the grid
@@ -404,7 +407,7 @@ class VirtualKeyboard(Gtk.Window):
                     background-image: none;
                     padding: 0px;
                     margin: 2px;
-            min-height: 42px;
+            min-height: 48px;
             /*min-height: 72px;*/
 
                 }}
@@ -518,16 +521,17 @@ class VirtualKeyboard(Gtk.Window):
                 if key_event in self.modifiers:
                     self.modifier_buttons[key_event] = button
                 #functionrow
-                if key_label == "Space": width=20
-                elif key_label == "Esc": width=5
-                elif key_label == "Tab": width=5
-                elif key_label == "CapsLock": width=6
-                elif key_label == "Shift_R" : width=5
-                elif key_label == "Shift_L" : width=8
-                elif key_label == "Backspace": width=6
-                elif key_label == "`": width=3
-                elif key_label == "\\" : width=4
-                elif key_label == "Enter": width=7
+                if key_label == "Space": width=4
+                elif key_label == "Enter": width=4
+                # elif key_label == "Esc": width=5
+                # elif key_label == "Tab": width=5
+                # elif key_label == "CapsLock": width=6
+                # elif key_label == "Shift_R" : width=5
+                # elif key_label == "Shift_L" : width=8
+                # elif key_label == "Backspace": width=6
+                # elif key_label == "`": width=3
+                # elif key_label == "\\" : width=4
+                # elif key_label == "Enter": width=7
                 else: width=4
 
                 style_context = button.get_style_context()
@@ -544,12 +548,12 @@ class VirtualKeyboard(Gtk.Window):
         button_positions = [(0, "` ~"), (1, "1 !"), (2, "2 @"), (3, "3 #"), (4, "4 $"), (5, "5 %"), (6, "6 ^"), (7, "7 &"), (8, "8 *"), (9, "9 ("), (10, "0 )")
         , (11, "- _"), (12, "= +"),(26,"[ {"), (27,"] }"), (28,"\\ |"), (40, "; :"), (41, "' \""), (52, ", <"), (53, ". >"), (54, "/ ?")]
 
-        for pos, label in button_positions:
-            label_parts = label.split()  
-            if show_symbols:
-                self.row_buttons[pos+14].set_label(label_parts[1])
-            else:
-                self.row_buttons[pos+14].set_label(label_parts[0])
+        # for pos, label in button_positions:
+        #     label_parts = label.split()  
+        #     if show_symbols:
+        #         self.row_buttons[pos+14].set_label(label_parts[1])
+        #     else:
+        #         self.row_buttons[pos+14].set_label(label_parts[0])
 
     def update_modifier(self, key_event, value):
       self.modifiers[key_event] = value

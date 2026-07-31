@@ -1,0 +1,8 @@
+[Desktop Entry]
+Exec=bash -c ~/vboardFn.sh
+Icon=image-navigator-symbolic
+Name=Vboard Fn/Navigation Keys
+Terminal=false
+Type=Application
+Categories=Utility
+NoDisplay=false

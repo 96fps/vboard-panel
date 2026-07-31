@@ -140,6 +140,7 @@ class VirtualKeyboard(Gtk.Window):
         self.set_can_focus(False)
         self.set_accept_focus(False)
         # self.width=0
+        # self.width=150
         # self.height=0
         self.height=150
 
@@ -217,6 +218,7 @@ class VirtualKeyboard(Gtk.Window):
         # Standard GTK layout setup
         # self.set_default_size(-1, self.height) # Width auto-fills due to anchors, height fixed to 50
         self.set_default_size(-1, self.height) # Width auto-fills due to anchors, height fixed to 50
+        # self.set_default_size(200, self.height) # Width auto-fills due to anchors, height fixed to 50
         
         # label = Gtk.Label(label="My Wayland Dock Panel")
         # self.add(label)
@@ -274,14 +276,18 @@ class VirtualKeyboard(Gtk.Window):
 
         # Define rows for keys
         rows = [
-            ["Esc", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Delete" ],
-            ["`", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "=", "Backspace", "Home" ],
-            ["Tab", "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", "[", "]", "\\", "PageUp"],
-            ["CapsLock", "A", "S", "D", "F", "G", "H", "J", "K", "L", ";", "'", "Enter", "PageDown"],
+            # ["Esc", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "Delete" ],
+            # ["`", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "=", "Backspace", "Home" ],
+            # ["Tab", "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", "[", "]", "\\", "PageUp"],
+            # ["CapsLock", "A", "S", "D", "F", "G", "H", "J", "K", "L", ";", "'", "Enter", "PageDown"],
             # ["Shift_L", "Z", "X", "C", "V", "B", "N", "M", ",", ".", "/", "Shift_R", "↑"],
             # ["Ctrl_L","Super_L", "Alt_L", "Space", "Alt_R", "Super_R", "Ctrl_R", "←", "→", "↓"]
-            ["Shift_L", "Z", "X", "C", "V", "B", "N", "M", ",", ".", "/", "↑", "Shift_R", "End"],
-            ["Ctrl_L","Super_L", "Alt_L", "Space", "Alt_R", "Super_R", "Ctrl_R", "←", "↓", "→"]
+            # ["Shift_L", "Z", "X", "C", "V", "B", "N", "M", ",", ".", "/", "↑", "Shift_R", "End"],
+            # ["Ctrl_L","Super_L", "Alt_L", "Space", "Alt_R", "Super_R", "Ctrl_R", "←", "↓", "→"]
+            # ["Esc", "Tab",  "/", "-", "PageUp", "Home",  "End"],
+            # ["Esc", "Super_L",  "Space",  "←","↑", "↓", "→", "Enter"]
+            [  "Space","K",  "J",  "L", "H",";", "M","-","=", "C","S",  "Esc", "←", "→","↑", "↓", "Enter"]
+            # ["Esc", "Ctrl_L","Super_L", "Alt_L",  "Alt_R", "Super_R", "Ctrl_R", "Home", "PageUp", "PageDown", "End", "←", "↑", "↓", "→"]
         ]
 
         # Create each row and add it to the grid
@@ -481,7 +487,55 @@ class VirtualKeyboard(Gtk.Window):
                     button = Gtk.Button(label="^")
 
                 if key_label == "Space":
-                    button = Gtk.Button(label="␣")
+                    button = Gtk.Button(label="⏯")
+
+                if key_label == "H":
+                    button = Gtk.Button(label="⏮")
+                if key_label == "K":
+                    button = Gtk.Button(label="⏸")
+                if key_label == "J":
+                    button = Gtk.Button(label="⏪︎")
+                if key_label == "L":
+                    button = Gtk.Button(label="⏩︎")
+                if key_label == ";":
+                    button = Gtk.Button(label="⏭")
+                if key_label == "S":
+                    # button = Gtk.Button(label="⌕")
+                    button = Gtk.Button(label="🔍︎")
+                    # button = Gtk.Button(label="🔎︎")
+# 🔎
+# 🔉︎
+# 🔎︎
+# 🔍︎
+                if key_label == "C":
+                    # button = Gtk.Button(label="ᴄᴄ")
+                    button = Gtk.Button(label="cc")
+                    # button = Gtk.Button(label="ᑦᑦ")
+                    # button = Gtk.Button(label="ᑕᑕ")
+
+                if key_label == "Esc":
+                    # button = Gtk.Button(label="↩")
+                    # button = Gtk.Button(label="⬅×")
+                    button = Gtk.Button(label="ʙᴀᴄᴋ")
+
+
+                    # button = Gtk.Button(label="🔙")
+                    # 🔉🔈︎
+
+                if key_label == "M":
+                    # button = Gtk.Button(label="&#xFE0E;&#x1F507;🔇")
+                    # button = Gtk.Button(label="🔇")
+                    button = Gtk.Button(label="🔇︎")
+                if key_label == "-":
+                    # button = Gtk.Button(label="🔉")
+                    button = Gtk.Button(label="🔈︎-")
+                if key_label == "=":
+                    # button = Gtk.Button(label="🔉")
+                    button = Gtk.Button(label="🔉︎+")
+
+                    
+
+
                 if key_label == "Tab":
                     button = Gtk.Button(label="↹")
                 if key_label == "PageUp":
@@ -500,7 +554,9 @@ class VirtualKeyboard(Gtk.Window):
                     
                 # if key_label in ("Enter"):
                 if key_label == "Enter":
-                    button = Gtk.Button(label="⏎")
+                    button = Gtk.Button(label="sᴇʟᴇᴄᴛ")
+                    # button = Gtk.Button(label="⏎")
+
                     
 
  
@@ -518,16 +574,18 @@ class VirtualKeyboard(Gtk.Window):
                 if key_event in self.modifiers:
                     self.modifier_buttons[key_event] = button
                 #functionrow
-                if key_label == "Space": width=20
+                if key_label == "Space": width=5
                 elif key_label == "Esc": width=5
-                elif key_label == "Tab": width=5
-                elif key_label == "CapsLock": width=6
-                elif key_label == "Shift_R" : width=5
-                elif key_label == "Shift_L" : width=8
-                elif key_label == "Backspace": width=6
-                elif key_label == "`": width=3
-                elif key_label == "\\" : width=4
-                elif key_label == "Enter": width=7
+                elif key_label == "Enter": width=5
+                # elif key_label == "Esc": width=5
+                # elif key_label == "Tab": width=5
+                # elif key_label == "CapsLock": width=6
+                # elif key_label == "Shift_R" : width=5
+                # elif key_label == "Shift_L" : width=8
+                # elif key_label == "Backspace": width=6
+                # elif key_label == "`": width=3
+                # elif key_label == "\\" : width=4
+                # elif key_label == "Enter": width=7
                 else: width=4
 
                 style_context = button.get_style_context()
@@ -535,6 +593,8 @@ class VirtualKeyboard(Gtk.Window):
                     style_context.add_class('functionrow')
 
                 grid.attach(button, col, row_index, width, 1)
+                # if key_label == "Esc": col += 10
+
                 col += width  # Skip 4 columns for the space button
 
     def update_label(self, show_symbols):
@@ -544,12 +604,12 @@ class VirtualKeyboard(Gtk.Window):
         button_positions = [(0, "` ~"), (1, "1 !"), (2, "2 @"), (3, "3 #"), (4, "4 $"), (5, "5 %"), (6, "6 ^"), (7, "7 &"), (8, "8 *"), (9, "9 ("), (10, "0 )")
         , (11, "- _"), (12, "= +"),(26,"[ {"), (27,"] }"), (28,"\\ |"), (40, "; :"), (41, "' \""), (52, ", <"), (53, ". >"), (54, "/ ?")]
 
-        for pos, label in button_positions:
-            label_parts = label.split()  
-            if show_symbols:
-                self.row_buttons[pos+14].set_label(label_parts[1])
-            else:
-                self.row_buttons[pos+14].set_label(label_parts[0])
+        # for pos, label in button_positions:
+        #     label_parts = label.split()  
+        #     if show_symbols:
+        #         self.row_buttons[pos+14].set_label(label_parts[1])
+        #     else:
+        #         self.row_buttons[pos+14].set_label(label_parts[0])
 
     def update_modifier(self, key_event, value):
       self.modifiers[key_event] = value

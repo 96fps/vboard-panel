@@ -1,0 +1,8 @@
+[Desktop Entry]
+Exec=bash -c ~/vboardKill.sh 
+Icon=dialog-close-symbolic
+Name=Close Vboard Panel
+Terminal=false
+Type=Application
+Categories=Utility
+NoDisplay=false
