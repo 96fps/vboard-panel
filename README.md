@@ -12,6 +12,15 @@ Fork of [/mdev588/vboard](http://github.com/mdev588/vboard) with tweaks, includi
 
 ![vboard-panel](images/vboard-panel.png)
 
+### vboard panel (main)
+![vboard-panel](images/vb_panel.png)
+
+### vboard fn (function/modifier keys)
+![vboard-panel](images/vb_fn.png)
+
+### vboard nav (vacuumtube controls)
+![vboard-panel](images/vb_nav.png)
+
 ---
 *original README.md:*
 
