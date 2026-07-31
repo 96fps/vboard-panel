@@ -1,3 +1,13 @@
+# vboard-panel
+
+Fork of [/mdev588/vboard](http://github.com/mdev588/vboard) with tweaks, including turning it into a dock/panel rather than a free floating window.
+
+
+wayland support/detection ported from [archisman-panigrahi/vboard](http://github.com/archisman-panigrahi/vboard)
+
+---
+*original README.md:*
+
 # vboard
 *A virtual keyboard for Linux with Wayland support and extensive customization options.*
 
